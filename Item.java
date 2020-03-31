@@ -2,6 +2,7 @@ class Item {
 	int id;
 	String name;
 	double price;
+        double tax;
 
 	//TODO add variable.
 
