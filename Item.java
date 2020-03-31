@@ -64,4 +64,53 @@ class Item {
 	
 	
 }
+class Receipt
+{
+	ArrayList<Item> listItems = new ArrayList<Item>();
+	
+	public Receipt(ArrayList<Item>listItems)
+	{
+	    this.listItems=listItems;
+	}
+	public void addItem(Item item)
+	{
+		listItems.add(item);
+	}
+	public void deleteItem(String item)
+	{
+		int n = listItems.size();
+		for(int i=0;i<n;i++)
+		{
+			if(listItems.get(i).getName()==item)
+			{
+				listItems.remove(i);
+				break;
+			}
+		}
+	}
+	public void printList()
+	{
+		System.out.println(listItems);
+	}
+	public double vkupenIznos()
+	{
+		int n = listItems.size();
+		double suma=0;
+		for(int i=0;i<n;i++)
+		{
+			suma+=listItems.get(i).price;
+		}
+		return suma;
+	}
+	public double vkupenPovratDDV()
+	{
+		int n = listItems.size();
+		double suma=0;
+		for(int i=0;i<n;i++)
+		{
+			suma+=listItems.get(i).taxReturn();
+		}
+		return suma;
+	}
+		
 }
